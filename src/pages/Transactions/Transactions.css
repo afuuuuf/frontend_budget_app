@@ -1,0 +1,87 @@
+.Transactions{
+    background-color: #f3f9ff;
+    min-height: 100vh;
+    width: 100%;
+    margin-top: 20px;
+    padding: 30px 0 0 20px; /*top right bottom left*/
+}
+
+.Transactions h1{
+    font-size: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.transaction-info{
+    width: 80%;
+}
+
+.cards {
+    display: flex;
+    justify-content: flex-start;
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.balance-card{
+    flex: 1;
+    background: #fff;
+    padding: 20px;
+    width: 180px;
+    height: 180px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #000;
+}
+
+.balance-card h2{
+    color: rgba(21, 49, 211, 0.623);
+    margin-top: 2px; /* or margin-top: 0 for no gap at all */
+    margin-bottom: 10px;
+}
+
+.balance-card h3,
+.balance-card h4 {
+    margin: 0;
+}
+
+.past-transaction-card{
+    flex: 1.5;
+    background: #fff;
+    padding: 20px;
+    width: 250px;
+    height: 180px;
+    display: flex;
+    flex-direction: row;        /* changed from column */
+    justify-content: space-between; /* label left, value right */
+    align-items:flex-start;
+    color: #000;
+}
+
+.past-transaction-card h5{
+    margin: 0;
+}
+
+.percent-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 1.1rem;
+}
+
+.percent-row.negative {
+    color: #d9363e; /* red for decrease */
+}
+
+.percent-row.positive {
+    color: #2e9e4f; /* green for increase */
+}
+
+.transaction-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
