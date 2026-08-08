@@ -6,6 +6,8 @@ const client = axios.create({
 
 export const createTransaction = (txn) => client.post().then(res => res.data);
 
+export const updateTransaction = (id, data) => client.put(`/${id}`, data).then(res => res.data);
+
 export const listTransactions = () => client.get().then(res => res.data);
 
 export const getTransaction = (id) => client.get(`/${id}`).then(res => res.data);
