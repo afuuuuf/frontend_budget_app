@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import { FaCar, FaQuestionCircle, FaShoppingBag, FaUtensils } from 'react-icons/fa';
-import TransactionDetailsModal from '../../modals/TransactionDetailsModal/TransactionDetailsModal';
-import { getTransaction, listTransactions } from '../../routers/transaction_routes';
+import { getTransaction, listTransactions } from '../../services/transactionService';
+import TransactionDetailsModal from '../TransactionDetailsModal/TransactionDetailsModal';
 import './TransactionList.css';
 
 const categoryStyles = {
@@ -30,7 +30,7 @@ function TransactionList() {
                 const data = await listTransactions();
                 setTransactions(data);
             } catch (err) {
-                setError(err.message);
+                setError(err.description);
             } finally {
                 setLoading(false);
             }
@@ -44,7 +44,7 @@ function TransactionList() {
         setSelectedTransaction(details);
     } catch (err) {
         if (err.response?.status === 404) {
-            toast.error("This transaction doesn't exist.");
+            toast.error(err.response?.data.detail);
         } else {
             toast.error("Something went wrong. Please try again.");
         }
@@ -63,7 +63,6 @@ function TransactionList() {
                 <span>Description</span>
                 <span>Cost</span>
                 <span>Details</span>
-                <span></span>
             </div>
 
             {transactions.map((tx) => {
@@ -76,7 +75,7 @@ function TransactionList() {
                         </div>
                         <span className="transaction-date">{formatDate(tx.created_at)}</span>
                         <span className="transaction-description">{tx.description}</span>
-                        <span className="transaction-cost">${tx.amount.toFixed(2)}</span>
+                        <span className="transaction-cost">RM{tx.amount.toFixed(2)}</span>
                         <button
                             className="transaction-details-btn"
                             onClick={() => handleViewDetails(tx.id)}
