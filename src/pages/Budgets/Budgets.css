@@ -1,0 +1,106 @@
+.Budgets {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 24px;
+}
+
+.budget-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.budget-header h2 {
+    margin: 0;
+    font-size: 1.4rem;
+}
+
+.budget-month {
+    color: #999;
+    font-size: 0.9rem;
+}
+
+.budget-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+.card {
+    display: block;
+    text-align: left;
+    width: 100%;
+    background-color: #fff;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 16px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+    cursor: pointer;
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+    font-family: inherit;
+}
+
+.card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.85rem;
+    color: #666;
+    margin-bottom: 8px;
+}
+
+.icon {
+    font-size: 1rem;
+}
+
+.icon.bills {
+    color: rgb(221, 62, 62);
+}
+
+.icon.shopping {
+    color: rgb(212, 118, 211);
+}
+
+.icon.transportation {
+    color: rgb(41, 118, 144);
+}
+
+.icon.entertainment {
+    color: rgb(240, 167, 62);
+}
+
+.icon.others {
+    color: rgb(119, 119, 119);
+}
+
+.value {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.value.bills { color: #d9484d; }
+.value.shopping { color: #c768c4; }
+.value.transportation { color: #2e2e2e; }
+.value.entertainment { color: #e09a2e; }
+.value.others { color: #2e2e2e; }
+
+.card-action {
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #1531d3;
+}
+
+@media (max-width: 700px) {
+    .budget-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
