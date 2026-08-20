@@ -1,12 +1,12 @@
 export const TransactionCategory = Object.freeze({
-    FOOD: 'Food',
-    TRANSPORT: 'Transport',
-    SHOPPING: 'Shopping',
-    BILLS: 'Bills',
-    ENTERTAINMENT: 'Entertainment',
-    HEALTH: 'Health',
-    EDUCATION: 'Education',
-    OTHER: 'Other',
+    FOOD: 'FOOD',
+    TRANSPORT: 'TRANSPORT',
+    SHOPPING: 'SHOPPING',
+    BILLS: 'BILLS',
+    ENTERTAINMENT: 'ENTERTAINMENT',
+    HEALTH: 'HEALTH',
+    EDUCATION: 'EDUCATION',
+    OTHERS: 'OTHERS',
 });
 
 export const transactionCategoryOptions = Object.values(TransactionCategory);
