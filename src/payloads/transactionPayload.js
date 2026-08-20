@@ -3,5 +3,6 @@ export function buildTransactionPayload(formData) {
         description: formData.description.trim(),
         amount: Number(formData.amount),
         category: formData.category,
+        transactionFlow: formData.transactionFlow,
     };
 }
