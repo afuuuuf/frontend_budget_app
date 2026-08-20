@@ -4,7 +4,7 @@ const client = axios.create({
     baseURL: "http://localhost:8000/transactions",
 });
 
-export const createTransaction = (txn) => client.post().then(res => res.data);
+export const createTransaction = (txn) => client.post("", txn).then(res => res.data);
 
 export const updateTransaction = (id, data) => client.put(`/${id}`, data).then(res => res.data);
 

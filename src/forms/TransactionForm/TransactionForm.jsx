@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import toast from 'react-hot-toast';
 import { transactionCategoryOptions } from '../../enums/transactionCategory';
+import { transactionFlowOptions } from '../../enums/transactionFlow';
 import { buildTransactionPayload } from '../../payloads/transactionPayload';
 import { createTransaction } from '../../services/transactionService';
 import './TransactionForm.css';
@@ -10,6 +11,7 @@ function TransactionForm({ onCreated, onClose }) {
         description: '',
         amount: '',
         category: '',
+        transactionFlow: '',
     });
 
     const [isSubmitting, setIsSubmitting] = useState(false);
@@ -39,6 +41,7 @@ function TransactionForm({ onCreated, onClose }) {
                 description: '',
                 amount: '',
                 category: '',
+                transactionFlow: '',
             });
 
             onCreated?.();
@@ -107,6 +110,25 @@ function TransactionForm({ onCreated, onClose }) {
                             ))}
                         </select>
                         <label>Category</label>
+                    </div>
+                    
+                    <div className="floating-field select-field">
+                        <select
+                            name="transactionFlow"
+                            value={formData.transactionFlow}
+                            onChange={handleChange}
+                        >
+                            <option value="" disabled>
+                                Select type of transaction
+                            </option>
+
+                            {transactionFlowOptions.map((transactionFlow) => (
+                                <option key={transactionFlow} value={transactionFlow}>
+                                    {transactionFlow}
+                                </option>
+                            ))}
+                        </select>
+                        <label>Transaction Flow</label>
                     </div>
 
                     <button type="submit" className="send-btn" disabled={isSubmitting}>
