@@ -1,13 +1,9 @@
-import axios from "axios";
+import client from "./apiClient";
 
-const client = axios.create({
-    baseURL: "http://localhost:8000/dashboard",
-});
+export const getBudgets = (txn) => client.get("/dashboard", txn).then((res) => res.data);
 
-export const getBudgets = (txn) => client.get("/", txn).then(res => res.data);
+export const getExpenses = () => client.get("/dashboard").then((res) => res.data);
 
-export const getExpenses = () => client.get("/").then(res => res.data);
+export const getBalance = (id) => client.get(`/dashboard/${id}`).then((res) => res.data);
 
-export const getBalance = (id) => client.get(`/${id}`).then(res => res.data);
-
-export const getSavings = (id) => client.get(`/${id}`).then(res => res.data);
+export const getSavings = (id) => client.get(`/dashboard/${id}`).then((res) => res.data);
