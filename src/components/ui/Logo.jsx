@@ -10,14 +10,14 @@ export function Logo({
     <div className="flex items-center gap-2">
       <img
         src={logo}
-        alt={showText ? "" : "Nest"}
+        alt={showText ? "" : "nest"}
         className={`w-auto shrink-0 object-contain ${className}`}
       />
       {showText && (
         <span
-          className={`font-semibold tracking-tight ${textColor} ${textClassName}`}
+          className={`font-sans font-medium tracking-tight ${textColor} ${textClassName}`}
         >
-          Nest
+          nest
         </span>
       )}
     </div>
