@@ -1,7 +1,8 @@
 // Adjust these if your FastAPI router paths differ.
 export const API_PATHS = {
-  login: '/v1/auth/login',
-  register: '/v1/auth/register',
-}
+  login: "/v1/auth/login",
+  register: "/v1/auth/register",
+  dashboard: "/v1/dashboard",
+};
 
-export const AUTH_LOGOUT_EVENT = 'auth:logout'
+export const AUTH_LOGOUT_EVENT = "auth:logout";

@@ -1,11 +1,14 @@
-import { createBrowserRouter, Navigate } from 'react-router-dom'
-import { ROUTES } from '@/constants/routes'
-import { ProtectedRoute } from '@/routes/ProtectedRoute'
-import { PublicOnlyRoute } from '@/routes/PublicOnlyRoute'
-import LoginPage from '@/pages/LoginPage'
-import RegisterPage from '@/pages/RegisterPage'
-import HomePage from '@/pages/HomePage'
+import { createBrowserRouter, Navigate } from "react-router-dom";
+import { ROUTES } from "@/constants/routes";
+import { ProtectedRoute } from "@/routes/ProtectedRoute";
+import { PublicOnlyRoute } from "@/routes/PublicOnlyRoute";
+import { AppShell } from "@/components/layout/AppShell";
+import LoginPage from "@/pages/LoginPage";
+import RegisterPage from "@/pages/RegisterPage";
+import HomePage from "@/pages/HomePage";
+import PlaceholderPage from "@/pages/PlaceholderPage";
 
+// `handle.title` feeds the breadcrumb in the top bar.
 export const router = createBrowserRouter([
   {
     element: <PublicOnlyRoute />,
@@ -16,7 +19,33 @@ export const router = createBrowserRouter([
   },
   {
     element: <ProtectedRoute />,
-    children: [{ path: ROUTES.home, element: <HomePage /> }],
+    children: [
+      {
+        element: <AppShell />,
+        children: [
+          {
+            path: ROUTES.home,
+            element: <HomePage />,
+            handle: { title: "Home" },
+          },
+          {
+            path: ROUTES.budgets,
+            element: <PlaceholderPage title="Budgets" />,
+            handle: { title: "Budgets" },
+          },
+          {
+            path: ROUTES.transactions,
+            element: <PlaceholderPage title="Transactions" />,
+            handle: { title: "Transactions" },
+          },
+          {
+            path: ROUTES.savings,
+            element: <PlaceholderPage title="Savings" />,
+            handle: { title: "Savings" },
+          },
+        ],
+      },
+    ],
   },
-  { path: '*', element: <Navigate to={ROUTES.home} replace /> },
-])
+  { path: "*", element: <Navigate to={ROUTES.home} replace /> },
+]);
