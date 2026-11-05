@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { FiLock } from "react-icons/fi";
 import { Logo } from "@/components/ui/Logo";
+import { APP_TAGLINE, APP_SUBTAGLINE, APP_PRIVACY_NOTE } from "@/constants/app";
 
 function NestIllustration() {
   return (
@@ -46,14 +47,10 @@ export function AuthLayout({ children, switchPrompt, switchLabel, switchTo }) {
 
         {/* Headline + illustration, centred in the remaining space */}
         <div className="my-auto w-full max-w-md">
-          <h2 className="text-[56px] font-medium leading-[1.05] tracking-tight">
-            Make room for
-            <br />
-            what matters.
+          <h2 className="max-w-[420px] text-[56px] font-medium leading-[1.05] tracking-tight">
+            {APP_TAGLINE}
           </h2>
-          <p className="mt-5 text-lg text-ivory/80">
-            A little clarity. A little more possibility.
-          </p>
+          <p className="mt-5 text-lg text-ivory/80">{APP_SUBTAGLINE}</p>
           <div className="mt-16 flex justify-center">
             <NestIllustration />
           </div>
@@ -61,7 +58,7 @@ export function AuthLayout({ children, switchPrompt, switchLabel, switchTo }) {
 
         <p className="flex items-center gap-2 text-sm text-ivory/90">
           <FiLock className="text-lime" aria-hidden="true" />
-          Your money story stays yours.
+          {APP_PRIVACY_NOTE}
         </p>
       </aside>
 

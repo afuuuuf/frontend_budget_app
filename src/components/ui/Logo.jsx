@@ -1,4 +1,5 @@
 import logo from "@/assets/Nest.png";
+import { APP_NAME } from "@/constants/app";
 
 export function Logo({
   className = "h-8",
@@ -10,14 +11,14 @@ export function Logo({
     <div className="flex items-center gap-2">
       <img
         src={logo}
-        alt={showText ? "" : "nest"}
+        alt={showText ? "" : APP_NAME.toLowerCase()}
         className={`w-auto shrink-0 object-contain ${className}`}
       />
       {showText && (
         <span
           className={`font-sans font-medium tracking-tight ${textColor} ${textClassName}`}
         >
-          nest
+          {APP_NAME.toLowerCase()}
         </span>
       )}
     </div>
