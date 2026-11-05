@@ -1,25 +1,45 @@
-const KEY = 'nest.access_token'
+import { APP_SLUG } from "@/constants/app";
+
+const TOKEN_KEY = `${APP_SLUG}.access_token`;
+const USER_KEY = `${APP_SLUG}.user`;
+
+function read(key) {
+  try {
+    return localStorage.getItem(key);
+  } catch {
+    return null;
+  }
+}
+
+function write(key, value) {
+  try {
+    localStorage.setItem(key, value);
+  } catch {
+    /* storage unavailable */
+  }
+}
+
+function remove(key) {
+  try {
+    localStorage.removeItem(key);
+  } catch {
+    /* storage unavailable */
+  }
+}
 
 export const tokenStorage = {
-  get() {
+  get: () => read(TOKEN_KEY),
+  set: (token) => write(TOKEN_KEY, token),
+  getUser() {
     try {
-      return localStorage.getItem(KEY)
+      return JSON.parse(read(USER_KEY));
     } catch {
-      return null
+      return null;
     }
   },
-  set(token) {
-    try {
-      localStorage.setItem(KEY, token)
-    } catch {
-      /* storage unavailable */
-    }
-  },
+  setUser: (user) => write(USER_KEY, JSON.stringify(user)),
   clear() {
-    try {
-      localStorage.removeItem(KEY)
-    } catch {
-      /* storage unavailable */
-    }
+    remove(TOKEN_KEY);
+    remove(USER_KEY);
   },
-}
+};
