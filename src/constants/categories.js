@@ -7,31 +7,37 @@ import {
   FiFilm,
   FiShoppingBag,
   FiTruck,
+  FiBook,
 } from "react-icons/fi";
 import {
   MdOutlineShoppingBasket,
   MdOutlineRestaurant,
   MdOutlineDirectionsCar,
 } from "react-icons/md";
+import { toEnumKey } from "@/utils/enumUtil";
+import { CATEGORY } from "@/enums";
 
 // Icons per category, matched by lowercase name. Unknown categories fall back to a tag.
 const ICONS = {
-  HOUSING: FiHome,
-  RENT: FiHome,
-  GROCERIES: MdOutlineShoppingBasket,
-  DINING: MdOutlineRestaurant,
-  TRANSPORT: MdOutlineDirectionsCar,
-  UTILITIES: FiZap,
-  FREELANCE: FiBriefcase,
-  SALARY: FiBriefcase,
-  HEALTH: FiHeart,
-  ENTERTAINMENT: FiFilm,
-  SHOPPING: FiShoppingBag,
-  TRAVEL: FiTruck,
+  [CATEGORY.BILLS]: FiZap,
+  [CATEGORY.DINING]: MdOutlineRestaurant,
+  [CATEGORY.EDUCATION]: FiBook,
+  [CATEGORY.ENTERTAINMENT]: FiFilm,
+  [CATEGORY.FOOD]: MdOutlineRestaurant,
+  [CATEGORY.FREELANCE]: FiBriefcase,
+  [CATEGORY.GROCERIES]: MdOutlineShoppingBasket,
+  [CATEGORY.HEALTH]: FiHeart,
+  [CATEGORY.HOUSING]: FiHome,
+  [CATEGORY.RENT]: FiHome,
+  [CATEGORY.SALARY]: FiBriefcase,
+  [CATEGORY.SHOPPING]: FiShoppingBag,
+  [CATEGORY.TRANSPORT]: MdOutlineDirectionsCar,
+  [CATEGORY.TRAVEL]: FiTruck,
+  [CATEGORY.UTILITIES]: FiZap,
 };
 
 export function getCategoryIcon(name = "") {
-  return ICONS[name.trim().toUpperCase()] ?? FiTag;
+  return ICONS[toEnumKey(name)] ?? FiTag;
 }
 
 // Donut segment colors, in order, taken from the palette plus two supporting tones.
