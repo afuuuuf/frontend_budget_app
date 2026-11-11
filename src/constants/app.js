@@ -11,3 +11,6 @@ export const DEFAULT_CURRENCY = "MYR";
 export const DEFAULT_LOCALE = "en-US";
 // Placeholder until the backend has a notion of multiple accounts.
 export const ACCOUNT_LABEL = "Everyday account";
+
+// Whether the API sends money as integer cents (21200 = $212.00) instead of dollars (21200 = $21,200).
+export const API_MONEY_IN_CENTS = true;
