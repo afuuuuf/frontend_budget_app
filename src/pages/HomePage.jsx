@@ -32,10 +32,7 @@ export default function HomePage() {
   };
 
   const { data, isPending, isError, error, refetch, isPlaceholderData } =
-    useDashboard({
-      year,
-      month,
-    });
+    useDashboard({ year, month });
 
   const periodLabel = `${formatPeriodRange(year, month)}, ${year}`;
   const shortPeriod = formatPeriodRange(year, month);
@@ -69,7 +66,9 @@ export default function HomePage() {
 
       {data && (
         <div
-          className={`space-y-6 transition-opacity ${isPlaceholderData ? "opacity-60" : "opacity-100"}`}
+          className={`space-y-6 transition-opacity ${
+            isPlaceholderData ? "opacity-60" : "opacity-100"
+          }`}
         >
           <StatsGrid data={data} periodLabel={periodLabel} />
           <p className="text-xs text-slate">
@@ -87,14 +86,22 @@ export default function HomePage() {
             />
           </div>
 
-          <div className="grid gap-6 lg:grid-cols-[2.1fr_1fr]">
-            <RecentTransactionsCard transactions={data.recentTransactions} />
-            <SavingsSummaryCard
-              savings={data.savings}
-              year={year}
-              month={month}
-            />
-          </div>
+          {(data.recentTransactions || data.savings) && (
+            <div className="grid items-start gap-6 lg:grid-cols-[2.1fr_1fr]">
+              {data.recentTransactions && (
+                <RecentTransactionsCard
+                  transactions={data.recentTransactions}
+                />
+              )}
+              {data.savings && (
+                <SavingsSummaryCard
+                  savings={data.savings}
+                  year={year}
+                  month={month}
+                />
+              )}
+            </div>
+          )}
         </div>
       )}
     </div>
