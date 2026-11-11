@@ -1,25 +1,59 @@
-// A sample of the response shape dashboardService expects from GET /v1/dashboard.
-// It doubles as documentation: if your API differs, adapt toDashboard() in dashboardService.js.
-// Amounts are plain numbers in major units (dollars), not cents.
+import { API_MONEY_IN_CENTS } from "@/constants/app";
+import { TRANSACTION_FLOW } from "@/enums/transactionFlow";
+
+// Sample response in the shape GET /v1/dashboard returns (see toDashboard in dashboardService.js).
+// recentTransactions, savings and savingsTransfers are optional extras the endpoint
+// doesn't send yet; the dashboard hides the cards it has no data for.
+// api() writes amounts in dollars and converts them to whatever unit the API uses.
+const api = (amount) => (API_MONEY_IN_CENTS ? amount * 100 : amount);
+
 export const dashboardRaw = {
-  income: 5000,
-  expenses: 2300,
-  savings_transfers: 600,
-  budgets: [
-    { id: 1, category: 'Groceries', spent: 320, limit: 400 },
-    { id: 2, category: 'Dining', spent: 180, limit: 150 },
+  totalIncome: api(5000),
+  totalExpenses: api(2300),
+  currentBalance: api(2100),
+  netSavingsRate: 54,
+  savingsTransfers: api(600),
+  budgetOverview: [
+    { category: "FOOD", amount: api(400), spent: api(320), remaining: api(80) },
+    {
+      category: "ENTERTAINMENT",
+      amount: api(150),
+      spent: api(180),
+      remaining: api(-30),
+    },
   ],
-  category_spending: [
-    { category: 'Housing', amount: 1500 },
-    { category: 'Groceries', amount: 320 },
-    { category: 'Dining', amount: 180 },
-    { category: 'Utilities', amount: 180 },
-    { category: 'Transport', amount: 120 },
+  categorySpending: [
+    { category: "HOUSING", amount: api(1500) },
+    { category: "FOOD", amount: api(320) },
+    { category: "ENTERTAINMENT", amount: api(180) },
+    { category: "UTILITIES", amount: api(180) },
+    { category: "TRANSPORT", amount: api(120) },
   ],
-  recent_transactions: [
-    { id: 11, title: 'Whole Foods', category: 'Groceries', date: '2026-11-04', amount: 120, type: 'expense' },
-    { id: 10, title: 'Lunch at Juniper', category: 'Dining', date: '2026-11-04', amount: 45, type: 'expense' },
-    { id: 9, title: 'Design project', category: 'Freelance', date: '2026-11-03', amount: 500, type: 'income' },
+  recentTransactions: [
+    {
+      id: 11,
+      title: "Whole Foods",
+      category: "FOOD",
+      date: "2026-11-04",
+      amount: api(120),
+      type: TRANSACTION_FLOW.EXPENSE,
+    },
+    {
+      id: 10,
+      title: "Lunch at Juniper",
+      category: "FOOD",
+      date: "2026-11-04",
+      amount: api(45),
+      type: TRANSACTION_FLOW.EXPENSE,
+    },
+    {
+      id: 9,
+      title: "Design project",
+      category: "FREELANCE",
+      date: "2026-11-03",
+      amount: api(500),
+      type: TRANSACTION_FLOW.INCOME,
+    },
   ],
-  savings: { total_saved: 6000, goal_count: 2, added_this_period: 600 },
-}
+  savings: { totalSaved: api(6000), goalCount: 2, addedThisMonth: api(600) },
+};
