@@ -6,6 +6,9 @@ import { AppShell } from "@/components/layout/AppShell";
 import LoginPage from "@/pages/LoginPage";
 import RegisterPage from "@/pages/RegisterPage";
 import HomePage from "@/pages/HomePage";
+import BudgetsPage from "@/pages/BudgetsPage";
+import CreateBudgetPage from "@/pages/CreateBudgetPage";
+import EditBudgetPage from "@/pages/EditBudgetPage";
 import PlaceholderPage from "@/pages/PlaceholderPage";
 
 // `handle.title` feeds the breadcrumb in the top bar.
@@ -30,7 +33,17 @@ export const router = createBrowserRouter([
           },
           {
             path: ROUTES.budgets,
-            element: <PlaceholderPage title="Budgets" />,
+            element: <BudgetsPage />,
+            handle: { title: "Budgets" },
+          },
+          {
+            path: ROUTES.budgetNew,
+            element: <CreateBudgetPage />,
+            handle: { title: "Budgets" },
+          },
+          {
+            path: ROUTES.budgetEditPattern,
+            element: <EditBudgetPage />,
             handle: { title: "Budgets" },
           },
           {
