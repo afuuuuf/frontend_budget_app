@@ -2,7 +2,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import toast from "react-hot-toast";
 import { budgetService } from "@/services/budgetService";
 import { queryKeys } from "@/constants/queryKeys";
-import { getErrorMessage } from "@/utils/getErrorMessage";
+import { getErrorMessage } from "@/utils/errorMessageUtil";
 
 export function useCreateBudget() {
   const queryClient = useQueryClient();

@@ -2,7 +2,7 @@ import { useSearchParams } from "react-router-dom";
 import toast from "react-hot-toast";
 import { useAuth } from "@/context/AuthContext";
 import { useDashboard } from "@/hooks/useDashboard";
-import { getErrorMessage } from "@/utils/getErrorMessage";
+import { getErrorMessage } from "@/utils/errorMessageUtil";
 import { getFirstName } from "@/utils/userUtil";
 import {
   formatPeriodRange,

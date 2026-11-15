@@ -3,7 +3,7 @@ import { FiPlus } from "react-icons/fi";
 import { ROUTES } from "@/constants/routes";
 import { useBudgets } from "@/hooks/useBudgets";
 import { useSelectedMonth } from "@/hooks/useSelectedMonth";
-import { getErrorMessage } from "@/utils/getErrorMessage";
+import { getErrorMessage } from "@/utils/errorMessageUtil";
 import { formatMonthName } from "@/utils/timeUtil";
 import { Card } from "@/components/ui/Card";
 import { Skeleton } from "@/components/ui/Skeleton";
