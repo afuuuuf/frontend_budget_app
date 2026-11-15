@@ -3,6 +3,7 @@ export const API_PATHS = {
   register: "/v1/auth/register",
   dashboard: "/v1/dashboard",
   budgets: "/v1/budgets",
+  transactions: "/v1/transactions",
 };
 
 export const AUTH_LOGOUT_EVENT = "auth:logout";
