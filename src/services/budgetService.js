@@ -1,7 +1,7 @@
 import { apiClient } from "@/libs/apiClient";
 import { API_PATHS } from "@/constants/api";
 import { budgetsStore } from "@/services/mocks/budgetsRaw";
-import { fromApiMoney, toApiMoney } from "@/utils/currencyUtil";
+import { fromApiMoney, toApiMoney } from "@/utils/moneyUtil";
 import { getMonthEnum } from "@/utils/timeUtil";
 import { formatEnumLabel } from "@/utils/enumUtil";
 

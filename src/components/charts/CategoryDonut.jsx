@@ -1,6 +1,6 @@
 import { Cell, Pie, PieChart, ResponsiveContainer } from "recharts";
 import { getSegmentColor } from "@/constants/categories";
-import { formatCurrency } from "@/utils/currencyUtil";
+import { formatCurrency } from "@/utils/moneyUtil";
 
 const EMPTY_RING = [{ name: "No spending", amount: 1, color: "#DCE5DF" }];
 

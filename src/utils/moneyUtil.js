@@ -1,4 +1,8 @@
-import { DEFAULT_CURRENCY, DEFAULT_LOCALE } from "@/constants/app";
+import {
+  DEFAULT_CURRENCY,
+  DEFAULT_LOCALE,
+  API_MONEY_IN_CENTS,
+} from "@/constants/app";
 
 const formatters = new Map();
 

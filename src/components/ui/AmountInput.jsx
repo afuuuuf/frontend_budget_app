@@ -1,5 +1,5 @@
 import { forwardRef } from "react";
-import { getCurrencySymbol } from "@/utils/currencyUtil";
+import { getCurrencySymbol } from "@/utils/moneyUtil";
 
 // Large money field with the currency symbol in front. Holds text; the schema parses it.
 export const AmountInput = forwardRef(function AmountInput(

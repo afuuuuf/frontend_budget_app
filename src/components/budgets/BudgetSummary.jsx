@@ -2,7 +2,7 @@ import { FiPieChart } from "react-icons/fi";
 import { IoWalletOutline } from "react-icons/io5";
 import { Card } from "@/components/ui/Card";
 import { ProgressBar } from "@/components/ui/ProgressBar";
-import { formatCurrency } from "@/utils/currencyUtil";
+import { formatCurrency } from "@/utils/moneyUtil";
 import { getBudgetStatus } from "@/utils/mathUtil";
 import { formatMonthName, formatMonthRange } from "@/utils/timeUtil";
 

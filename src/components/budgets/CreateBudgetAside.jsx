@@ -1,6 +1,6 @@
 import { FiPieChart } from "react-icons/fi";
 import { Card } from "@/components/ui/Card";
-import { formatCurrency } from "@/utils/currencyUtil";
+import { formatCurrency } from "@/utils/moneyUtil";
 import { formatEnumLabel } from "@/utils/enumUtil";
 import { formatMonthName } from "@/utils/timeUtil";
 

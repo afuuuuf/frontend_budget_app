@@ -2,7 +2,7 @@ import { FiInfo } from "react-icons/fi";
 import { Card } from "@/components/ui/Card";
 import { ProgressBar } from "@/components/ui/ProgressBar";
 import { getCategoryIcon } from "@/constants/categories";
-import { formatCurrency } from "@/utils/currencyUtil";
+import { formatCurrency } from "@/utils/moneyUtil";
 import { formatEnumLabel } from "@/utils/enumUtil";
 import { getBudgetStatus } from "@/utils/mathUtil";
 import { formatMonthYear } from "@/utils/timeUtil";

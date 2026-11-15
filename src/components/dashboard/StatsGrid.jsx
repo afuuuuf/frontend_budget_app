@@ -1,7 +1,7 @@
 import { FiArrowDownLeft, FiArrowUpRight } from "react-icons/fi";
 import { IoWalletOutline } from "react-icons/io5";
 import { ACCOUNT_LABEL, DEFAULT_CURRENCY } from "@/constants/app";
-import { formatCurrency } from "@/utils/currencyUtil";
+import { formatCurrency } from "@/utils/moneyUtil";
 import { StatCard } from "@/components/ui/StatCard";
 import { SeedlingIcon } from "@/components/ui/SeedlingIcon";
 

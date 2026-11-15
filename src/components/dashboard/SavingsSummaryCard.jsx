@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { ROUTES } from "@/constants/routes";
-import { formatCurrency } from "@/utils/currencyUtil";
+import { formatCurrency } from "@/utils/moneyUtil";
 import { formatMonthName } from "@/utils/timeUtil";
 import { SeedlingIcon } from "@/components/ui/SeedlingIcon";
 

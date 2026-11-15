@@ -1,5 +1,5 @@
 import { FiAlertCircle } from "react-icons/fi";
-import { formatCurrency } from "@/utils/currencyUtil";
+import { formatCurrency } from "@/utils/moneyUtil";
 import { formatEnumLabel } from "@/utils/enumUtil";
 
 export function BudgetAlert({ budgets }) {

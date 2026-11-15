@@ -3,7 +3,7 @@ import { FiEdit2 } from "react-icons/fi";
 import { ProgressBar } from "@/components/ui/ProgressBar";
 import { ROUTES } from "@/constants/routes";
 import { getCategoryIcon } from "@/constants/categories";
-import { formatCurrency } from "@/utils/currencyUtil";
+import { formatCurrency } from "@/utils/moneyUtil";
 import { formatEnumLabel } from "@/utils/enumUtil";
 import { getBudgetStatus } from "@/utils/mathUtil";
 import { formatShortMonthYear } from "@/utils/timeUtil";
