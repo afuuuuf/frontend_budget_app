@@ -1,5 +1,5 @@
 import { getCategoryIcon } from "@/constants/categories";
-import { formatCurrency } from "@/utils/currencyUtil";
+import { formatCurrency } from "@/utils/moneyUtil";
 import { getBudgetStatus } from "@/utils/mathUtil";
 import { ProgressBar } from "@/components/ui/ProgressBar";
 

@@ -1,4 +1,4 @@
-import { formatCurrency } from "@/utils/currencyUtil";
+import { formatCurrency } from "@/utils/moneyUtil";
 import { formatShortDate } from "@/utils/timeUtil";
 
 export function TransactionRow({ transaction }) {

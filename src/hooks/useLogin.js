@@ -4,7 +4,7 @@ import toast from "react-hot-toast";
 import { authService } from "@/services/authService";
 import { useAuth } from "@/context/AuthContext";
 import { ROUTES } from "@/constants/routes";
-import { getErrorMessage } from "@/utils/getErrorMessage";
+import { getErrorMessage } from "@/utils/errorMessageUtil";
 
 export function useLogin() {
   const { login } = useAuth();

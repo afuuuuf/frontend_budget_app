@@ -1,6 +1,4 @@
-export const TransactionFlow = Object.freeze({
+export const TRANSACTION_FLOW = Object.freeze({
   INCOME: "INCOME",
   EXPENSE: "EXPENSE",
 });
-
-export const TRANSACTION_FLOW = Object.values(TransactionFlow);

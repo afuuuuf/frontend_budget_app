@@ -1,4 +1,4 @@
-export const Category = Object.freeze({
+export const CATEGORY = Object.freeze({
   BILLS: "BILLS",
   DINING: "DINING",
   EDUCATION: "EDUCATION",
@@ -16,5 +16,3 @@ export const Category = Object.freeze({
   UTILITIES: "UTILITIES",
   OTHERS: "OTHERS",
 });
-
-export const CATEGORY = Object.values(Category);

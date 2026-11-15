@@ -1,7 +1,7 @@
 import { Card } from "@/components/ui/Card";
 import { CategoryDonut } from "@/components/charts/CategoryDonut";
 import { getSegmentColor } from "@/constants/categories";
-import { formatCurrency } from "@/utils/currencyUtil";
+import { formatCurrency } from "@/utils/moneyUtil";
 import { formatMonthName } from "@/utils/timeUtil";
 
 export function CategorySpendingCard({ items, total, year, month }) {

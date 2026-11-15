@@ -59,3 +59,13 @@ export function getMonthEnum(month) {
     .toLocaleString("en-US", { month: "long" })
     .toUpperCase();
 }
+
+// "Nov 2026"
+export const formatShortMonthYear = (year, month) =>
+  fmt({ month: "short", year: "numeric" }).format(new Date(year, month - 1, 1));
+
+// "November 1–30, 2026"
+export function formatMonthRange(year, month) {
+  const lastDay = new Date(year, month, 0).getDate();
+  return `${formatMonthName(year, month)} 1–${lastDay}, ${year}`;
+}
