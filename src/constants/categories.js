@@ -44,16 +44,16 @@ export function getCategoryIcon(name = "") {
 // FREELANCE and SALARY are income; FOOD, RENT and BILLS overlap Groceries/Dining, Housing and
 // Utilities, so they stay out of the picker (add them here if you want them back).
 export const BUDGET_CATEGORIES = [
-  CATEGORY.HOUSING,
-  CATEGORY.GROCERIES,
   CATEGORY.DINING,
-  CATEGORY.TRANSPORT,
-  CATEGORY.UTILITIES,
-  CATEGORY.HEALTH,
-  CATEGORY.SHOPPING,
-  CATEGORY.ENTERTAINMENT,
   CATEGORY.EDUCATION,
+  CATEGORY.ENTERTAINMENT,
+  CATEGORY.GROCERIES,
+  CATEGORY.HEALTH,
+  CATEGORY.HOUSING,
+  CATEGORY.SHOPPING,
+  CATEGORY.TRANSPORT,
   CATEGORY.TRAVEL,
+  CATEGORY.UTILITIES,
   CATEGORY.OTHERS,
 ];
 
@@ -72,3 +72,5 @@ export const CHART_COLORS = [
 export function getSegmentColor(index) {
   return CHART_COLORS[index % CHART_COLORS.length];
 }
+
+console.log("BUDGET_CATEGORIES:", BUDGET_CATEGORIES);
