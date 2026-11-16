@@ -8,6 +8,8 @@ import {
   FiShoppingBag,
   FiTruck,
   FiBook,
+  FiTrendingUp,
+  FiPlusCircle,
 } from "react-icons/fi";
 import {
   MdOutlineShoppingBasket,
@@ -15,7 +17,7 @@ import {
   MdOutlineDirectionsCar,
 } from "react-icons/md";
 import { toEnumKey } from "@/utils/enumUtil";
-import { CATEGORY } from "@/enums";
+import { CATEGORY, TRANSACTION_FLOW } from "@/enums";
 
 // Icons per category, matched by lowercase name. Unknown categories fall back to a tag.
 const ICONS = {
@@ -28,6 +30,8 @@ const ICONS = {
   [CATEGORY.GROCERIES]: MdOutlineShoppingBasket,
   [CATEGORY.HEALTH]: FiHeart,
   [CATEGORY.HOUSING]: FiHome,
+  [CATEGORY.INVESTMENTS]: FiTrendingUp,
+  [CATEGORY.OTHER_INCOME]: FiPlusCircle,
   [CATEGORY.RENT]: FiHome,
   [CATEGORY.SALARY]: FiBriefcase,
   [CATEGORY.SHOPPING]: FiShoppingBag,
@@ -57,6 +61,25 @@ export const BUDGET_CATEGORIES = [
   CATEGORY.OTHERS,
 ];
 
+// Expenses reuse the budget categories, so every expense lands in a budget category.
+export const EXPENSE_CATEGORIES = BUDGET_CATEGORIES;
+export const INCOME_CATEGORIES = [
+  CATEGORY.SALARY,
+  CATEGORY.FREELANCE,
+  CATEGORY.INVESTMENTS,
+  CATEGORY.OTHER_INCOME,
+];
+
+// Every category that exists, for the list's Category filter. Broader than what the form
+// offers, so older transactions (like FOOD or RENT) can still be found.
+export const ALL_CATEGORIES = Object.values(CATEGORY);
+
+// The category list the transaction form offers for each type.
+export const CATEGORIES_BY_FLOW = {
+  [TRANSACTION_FLOW.EXPENSE]: EXPENSE_CATEGORIES,
+  [TRANSACTION_FLOW.INCOME]: INCOME_CATEGORIES,
+};
+
 // Donut segment colors, in order, taken from the palette plus two supporting tones.
 export const CHART_COLORS = [
   "#12665B",
@@ -72,5 +95,3 @@ export const CHART_COLORS = [
 export function getSegmentColor(index) {
   return CHART_COLORS[index % CHART_COLORS.length];
 }
-
-console.log("BUDGET_CATEGORIES:", BUDGET_CATEGORIES);

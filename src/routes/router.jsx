@@ -11,6 +11,8 @@ import CreateBudgetPage from "@/pages/CreateBudgetPage";
 import EditBudgetPage from "@/pages/EditBudgetPage";
 import PlaceholderPage from "@/pages/PlaceholderPage";
 import TransactionsPage from "@/pages/TransactionsPage";
+import CreateTransactionPage from "@/pages/CreateTransactionPage";
+import TransactionDetailPage from "@/pages/TransactionDetailPage";
 
 // `handle.title` feeds the breadcrumb in the top bar.
 export const router = createBrowserRouter([
@@ -49,7 +51,17 @@ export const router = createBrowserRouter([
           },
           {
             path: ROUTES.transactions,
-            element: <TransactionsPage title="Transactions" />,
+            element: <TransactionsPage />,
+            handle: { title: "Transactions" },
+          },
+          {
+            path: ROUTES.transactionNew,
+            element: <CreateTransactionPage />,
+            handle: { title: "Transactions" },
+          },
+          {
+            path: ROUTES.transactionDetailPattern,
+            element: <TransactionDetailPage />,
             handle: { title: "Transactions" },
           },
           {

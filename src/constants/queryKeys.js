@@ -3,4 +3,7 @@ export const queryKeys = {
   dashboardAll: ["dashboard"],
   budgets: (year, month) => ["budgets", year, month],
   budgetsAll: ["budgets"],
+  transactions: ["transactions", "list"],
+  transaction: (id) => ["transactions", "detail", id],
+  transactionsAll: ["transactions"],
 };

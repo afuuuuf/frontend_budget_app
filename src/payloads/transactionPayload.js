@@ -1,8 +1,16 @@
-export function buildTransactionPayload(formData) {
-    return {
-        description: formData.description.trim(),
-        amount: Number(formData.amount),
-        category: formData.category,
-        transactionFlow: formData.transactionFlow,
-    };
+import { toApiMoney } from "@/utils/moneyUtil";
+
+// Validated form values (amount in dollars) -> body of POST /v1/transactions.
+export function buildTransactionPayload({
+  description,
+  amount,
+  category,
+  transactionFlow,
+}) {
+  return {
+    description,
+    amount: toApiMoney(amount),
+    category,
+    transactionFlow,
+  };
 }

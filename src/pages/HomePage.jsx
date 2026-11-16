@@ -1,6 +1,6 @@
-import { useSearchParams } from "react-router-dom";
-import toast from "react-hot-toast";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import { useAuth } from "@/context/AuthContext";
+import { ROUTES } from "@/constants/routes";
 import { useDashboard } from "@/hooks/useDashboard";
 import { getErrorMessage } from "@/utils/errorMessageUtil";
 import { getFirstName } from "@/utils/userUtil";
@@ -21,6 +21,7 @@ import { SavingsSummaryCard } from "@/components/dashboard/SavingsSummaryCard";
 
 export default function HomePage() {
   const { user } = useAuth();
+  const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
 
   // The selected month lives in the URL (?month=2026-10), so it survives a refresh and can be shared.
@@ -44,7 +45,7 @@ export default function HomePage() {
         year={year}
         month={month}
         onMonthChange={handleMonthChange}
-        onAddTransaction={() => toast("Adding transactions is coming next.")}
+        onAddTransaction={() => navigate(ROUTES.transactionNew)}
       />
 
       {isPending && <DashboardSkeleton />}
