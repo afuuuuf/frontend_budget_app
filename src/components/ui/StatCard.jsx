@@ -11,11 +11,12 @@ export function StatCard({
   icon: Icon,
   tone = 'default',
   featured = false,
+  compact = false,
   className = '',
 }) {
   return (
     <Card
-      className={`flex min-h-[158px] flex-col ${
+      className={`flex flex-col ${compact ? '' : 'min-h-[158px]'} ${
         featured ? 'border-primary bg-primary text-white' : ''
       } ${className}`}
     >

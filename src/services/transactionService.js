@@ -1,13 +1,48 @@
-import client from "./apiClient";
+import { apiClient } from "@/libs/apiClient";
+import { API_PATHS } from "@/constants/api";
+import { TRANSACTION_FLOW } from "@/enums";
+import { formatEnumLabel } from "@/utils/enumUtil";
+import { fromApiMoney, toApiMoney } from "@/utils/moneyUtil";
 
-export const createTransaction = (txn) => client.post("/transactions", txn).then((res) => res.data);
+export function toTransaction(raw) {
+  const amount = Math.abs(fromApiMoney(raw.amount));
 
-export const updateTransaction = (id, data) =>
-    client.put(`/transactions/${id}`, data).then((res) => res.data);
+  return {
+    id: raw.id,
+    description: raw.description,
+    title: raw.description?.trim() || formatEnumLabel(raw.category),
+    category: raw.category,
+    flow: raw.transactionFlow,
+    amount: raw.transactionFlow === TRANSACTION_FLOW.INCOME ? amount : -amount,
+    createdAt: raw.created_at,
+    updatedAt: raw.updated_at,
+  };
+}
 
-export const listTransactions = () => client.get("/transactions").then((res) => res.data);
+const detailPath = (id) => `${API_PATHS.transactions}/${id}`;
 
-export const getTransaction = (id) => client.get(`/transactions/${id}`).then((res) => res.data);
+export const transactionService = {
+  async getTransactions() {
+    const { data } = await apiClient.get(API_PATHS.transactions);
+    return data.map(toTransaction);
+  },
 
-export const deleteTransaction = (id) =>
-    client.delete(`/transactions/${id}`).then((res) => res.data);
+  async getTransaction(id) {
+    const { data } = await apiClient.get(detailPath(id));
+    return toTransaction(data);
+  },
+
+  async createTransaction({ description, amount, category, transactionFlow }) {
+    const { data } = await apiClient.post(API_PATHS.transactions, {
+      description,
+      amount: toApiMoney(amount),
+      category,
+      transactionFlow,
+    });
+    return toTransaction(data);
+  },
+
+  async deleteTransaction(id) {
+    await apiClient.delete(detailPath(id));
+  },
+};
