@@ -24,6 +24,14 @@ export function toDate(value) {
 export const formatLongDate = (date) =>
   fmt({ weekday: "long", month: "long", day: "numeric" }).format(toDate(date));
 
+// "Nov 4, 2026"
+export const formatMediumDate = (date) =>
+  fmt({ dateStyle: "medium" }).format(toDate(date));
+
+// "November 4, 2026"
+export const formatFullDate = (date) =>
+  fmt({ dateStyle: "long" }).format(toDate(date));
+
 export const formatShortDate = (date) =>
   fmt({ month: "short", day: "numeric" }).format(toDate(date));
 
@@ -69,3 +77,13 @@ export function formatMonthRange(year, month) {
   const lastDay = new Date(year, month, 0).getDate();
   return `${formatMonthName(year, month)} 1–${lastDay}, ${year}`;
 }
+
+// True when `value` (an ISO timestamp or 'YYYY-MM-DD') falls inside the given month.
+export function isInMonth(value, year, month) {
+  const date = toDate(value);
+  return date.getFullYear() === year && date.getMonth() + 1 === month;
+}
+
+// "Nov 16, 2026, 3:31 AM"
+export const formatDateTime = (date) =>
+  fmt({ dateStyle: "medium", timeStyle: "short" }).format(toDate(date));

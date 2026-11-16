@@ -7,5 +7,8 @@ export const ROUTES = {
   budgetEditPattern: "/budgets/:category/edit",
   budgetEdit: (category) => `/budgets/${category}/edit`,
   transactions: "/transactions",
+  transactionNew: "/transactions/new",
+  transactionDetailPattern: "/transactions/:id",
+  transactionDetail: (id) => `/transactions/${id}`,
   savings: "/savings",
 };

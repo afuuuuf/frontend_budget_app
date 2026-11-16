@@ -57,3 +57,9 @@ export function getCurrencySymbol(currency = DEFAULT_CURRENCY) {
       .find((part) => part.type === "currency")?.value ?? currency
   );
 }
+
+// Text typed into an amount field ("1,250.5") → a positive number, or 0 while it isn't valid yet.
+export function parseMoneyInput(text) {
+  const n = Number(String(text ?? "").replace(/,/g, ""));
+  return Number.isFinite(n) && n > 0 ? n : 0;
+}
