@@ -3,6 +3,7 @@ import { API_PATHS } from "@/constants/api";
 import { TRANSACTION_FLOW } from "@/enums";
 import { formatEnumLabel } from "@/utils/enumUtil";
 import { fromApiMoney, toApiMoney } from "@/utils/moneyUtil";
+import { buildDetailPath } from "./commonService";
 
 export function toTransaction(raw) {
   const amount = Math.abs(fromApiMoney(raw.amount));
@@ -19,8 +20,6 @@ export function toTransaction(raw) {
   };
 }
 
-const detailPath = (id) => `${API_PATHS.transactions}/${id}`;
-
 export const transactionService = {
   async getTransactions() {
     const { data } = await apiClient.get(API_PATHS.transactions);
@@ -28,7 +27,9 @@ export const transactionService = {
   },
 
   async getTransaction(id) {
-    const { data } = await apiClient.get(detailPath(id));
+    const { data } = await apiClient.get(
+      buildDetailPath(API_PATHS.transactions, id),
+    );
     return toTransaction(data);
   },
 
@@ -43,6 +44,6 @@ export const transactionService = {
   },
 
   async deleteTransaction(id) {
-    await apiClient.delete(detailPath(id));
+    await apiClient.delete(buildDetailPath(API_PATHS.transactions, id));
   },
 };

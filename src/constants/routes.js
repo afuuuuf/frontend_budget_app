@@ -11,4 +11,11 @@ export const ROUTES = {
   transactionDetailPattern: "/transactions/:id",
   transactionDetail: (id) => `/transactions/${id}`,
   savings: "/savings",
+  savingsNew: "/savings/new",
+  savingsDetailPattern: "/savings/:id",
+  savingsDetail: (id) => `/savings/${id}`,
+  savingsEditPattern: "/savings/:id/edit",
+  savingsEdit: (id) => `/savings/${id}/edit`,
+  savingsAddMoneyPattern: "/savings/:id/add-money",
+  savingsAddMoney: (id) => `/savings/${id}/add-money`,
 };

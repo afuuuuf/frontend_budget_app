@@ -4,6 +4,7 @@ export const API_PATHS = {
   dashboard: "/v1/dashboard",
   budgets: "/v1/budgets",
   transactions: "/v1/transactions",
+  savings: "/v1/savings",
 };
 
 export const AUTH_LOGOUT_EVENT = "auth:logout";

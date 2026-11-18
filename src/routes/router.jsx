@@ -9,10 +9,14 @@ import HomePage from "@/pages/HomePage";
 import BudgetsPage from "@/pages/BudgetsPage";
 import CreateBudgetPage from "@/pages/CreateBudgetPage";
 import EditBudgetPage from "@/pages/EditBudgetPage";
-import PlaceholderPage from "@/pages/PlaceholderPage";
 import TransactionsPage from "@/pages/TransactionsPage";
 import CreateTransactionPage from "@/pages/CreateTransactionPage";
 import TransactionDetailPage from "@/pages/TransactionDetailPage";
+import SavingsPage from "@/pages/SavingsPage";
+import CreateSavingsGoalPage from "@/pages/CreateSavingsGoalPage";
+import SavingsGoalDetailPage from "@/pages/SavingsGoalDetailPage";
+import EditSavingsGoalPage from "@/pages/EditSavingsGoalPage";
+import AddMoneyPage from "@/pages/AddMoneyPage";
 
 // `handle.title` feeds the breadcrumb in the top bar.
 export const router = createBrowserRouter([
@@ -66,7 +70,27 @@ export const router = createBrowserRouter([
           },
           {
             path: ROUTES.savings,
-            element: <PlaceholderPage title="Savings" />,
+            element: <SavingsPage />,
+            handle: { title: "Savings" },
+          },
+          {
+            path: ROUTES.savingsNew,
+            element: <CreateSavingsGoalPage />,
+            handle: { title: "Savings" },
+          },
+          {
+            path: ROUTES.savingsDetailPattern,
+            element: <SavingsGoalDetailPage />,
+            handle: { title: "Savings" },
+          },
+          {
+            path: ROUTES.savingsEditPattern,
+            element: <EditSavingsGoalPage />,
+            handle: { title: "Savings" },
+          },
+          {
+            path: ROUTES.savingsAddMoneyPattern,
+            element: <AddMoneyPage />,
             handle: { title: "Savings" },
           },
         ],
