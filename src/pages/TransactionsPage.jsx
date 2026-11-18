@@ -83,11 +83,7 @@ export default function TransactionsPage() {
           <p className="mt-2 text-slate">
             Add an expense or income and it will show up here.
           </p>
-          <LinkButton
-            to={ROUTES.transactionNew}
-            icon={FiPlus}
-            className="mt-5"
-          >
+          <LinkButton to={ROUTES.transactionNew} icon={FiPlus} className="mt-5">
             Add transaction
           </LinkButton>
         </Card>
@@ -106,7 +102,10 @@ export default function TransactionsPage() {
             <TransactionFilters filters={filters} onChange={updateFilters} />
 
             {visible.length > 0 ? (
-              <TransactionTable transactions={visible} monthValue={monthValue} />
+              <TransactionTable
+                transactions={visible}
+                monthValue={monthValue}
+              />
             ) : (
               <div className="border-t border-mist px-6 py-12 text-center">
                 <p className="text-ink">No transactions match your filters.</p>

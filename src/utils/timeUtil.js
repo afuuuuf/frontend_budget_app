@@ -87,3 +87,19 @@ export function isInMonth(value, year, month) {
 // "Nov 16, 2026, 3:31 AM"
 export const formatDateTime = (date) =>
   fmt({ dateStyle: "medium", timeStyle: "short" }).format(toDate(date));
+
+// True for 'YYYY-MM-DD' strings, which is what <input type="date"> and the API use.
+export const isIsoDate = (value) =>
+  typeof value === "string" && YYYY_MM_DD_REGEX.test(value);
+
+// Local calendar date as 'YYYY-MM-DD' (toISOString would shift it to UTC).
+export function toIsoDate(date = new Date()) {
+  const pad = (n) => String(n).padStart(2, "0");
+  return `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())}`;
+}
+
+export function addDays(date, days) {
+  const next = new Date(date);
+  next.setDate(next.getDate() + days);
+  return next;
+}

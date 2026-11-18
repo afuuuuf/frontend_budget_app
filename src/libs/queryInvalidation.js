@@ -7,3 +7,9 @@ export function invalidateTransactionData(queryClient) {
   queryClient.invalidateQueries({ queryKey: queryKeys.budgetsAll });
   queryClient.invalidateQueries({ queryKey: queryKeys.dashboardAll });
 }
+
+// Goals, their contributions and the dashboard's savings summary all move together.
+export function invalidateSavingsData(queryClient) {
+  queryClient.invalidateQueries({ queryKey: queryKeys.savingsAll });
+  queryClient.invalidateQueries({ queryKey: queryKeys.dashboardAll });
+}

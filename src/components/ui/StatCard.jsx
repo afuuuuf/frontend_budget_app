@@ -17,7 +17,7 @@ export function StatCard({
   return (
     <Card
       className={`flex flex-col ${compact ? '' : 'min-h-[158px]'} ${
-        featured ? 'border-primary bg-primary text-white' : ''
+        featured ? 'border-primary !bg-primary text-white' : ''
       } ${className}`}
     >
       <div className="flex items-start justify-between gap-3">
